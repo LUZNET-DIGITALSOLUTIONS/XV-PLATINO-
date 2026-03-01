@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>INVITACION DIGITAL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+    }
+
+    .padre {
+      font-family: 'Shadows Into Light', cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .hijo {
+      border: 1px solid #FFD700;
+      box-shadow: 
+        0 0 12px rgba(255, 215, 0, 0.7),
+        0 0 24px rgba(255, 215, 0, 0.5),
+        0 0 36px rgba(255, 215, 0, 0.3);
+      width: 90%;
+      max-width: 400px;
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      background-image: url("https://i.ibb.co/Kcf7vx1p/image-1770932827305.jpg");
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 2s ease;
+      text-align: center;
+    }
+
+    .hijo.visible {
+      opacity: 1;
+    }
+
+    /* Animación de cambio de color */
+    @keyframes colorShift {
+      0%   { color: #FFD700; text-shadow: 0 0 10px #FFD700; }
+      50%  { color: #FFFFFF; text-shadow: 0 0 15px #FFFFFF; }
+      100% { color: #FFFFFF; text-shadow: 0 0 20px #FFFFFF
+      ; }
+    }
+
+    #matrix-text {
+      font-size: 3em;
+      white-space: pre;
+      animation: colorShift 3s infinite alternate;
+    }
+
+    /* Animación Matrix para cada letra */
+    #matrix-text span {
+      opacity: 0;
+      transform: translateY(-400px);
+      display: inline-block;
+      animation: caer 5s forwards;
+    }
+
+    @keyframes caer {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .space {
+      display: inline-block;
+      width: 0.5em; /* espacio visible */
+    }
+
+    /* Animaciones para los demás elementos */
+    #slide-p {
+    font-size: 1.5em;
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    #slide-p.visible {
+      animation: slideRight 5s forwards, colorShift 3s infinite alternate;
+    }
+    @keyframes slideRight {
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    #link1 {
+    font-size: 1.5em;
+      opacity: 0;
+      transform: translateY(-400px);
+      text-decoration: none;
+      
+      border: 1px solid #FFD700;
+  border-radius: 40px;
+  padding: 15px;
+  width: 180px;
+  background-color: transparent;
+  box-shadow: 
+    0 0 12px rgba(255, 215, 0, 0.7),
+    0 0 24px rgba(255, 215, 0, 0.5),
+    0 0 36px rgba(255, 215, 0, 0.3);
+  text-align: center;
+  margin:10px;
+    }
+    #link1.visible {
+      animation: downLink 5s forwards, colorShift 3s infinite alternate;
+    }
+    @keyframes downLink {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #link2 {
+      opacity: 0;
+      transform: rotate(-180deg);
+      
+      border: 1px solid #FFD700;
+  border-radius: 40px;
+  padding: 15px;
+  width: 180px;
+  background-color: transparent;
+  box-shadow: 
+    0 0 12px rgba(255, 215, 0, 0.7),
+    0 0 24px rgba(255, 215, 0, 0.5),
+    0 0 36px rgba(255, 215, 0, 0.3);
+  text-align: center;
+  margin:10px;
+    }
+    #link2.visible {
+      animation: rotateLink 5s forwards, colorShift 3s infinite alternate;
+      text-decoration: none;
+      font-size: 1.5em;
+    }
+    @keyframes rotateLink {
+      to { opacity: 1; transform: rotate(0); }
+    }
+
+    #link3 {
+      opacity: 0;
+      transform: scale(0.2);
+      text-decoration: none;
+      font-size: 1.5em;
+      border: 1px solid #FFD700;
+  border-radius: 40px;
+  padding: 15px;
+  width: 180px;
+  background-color: transparent;
+  box-shadow: 
+    0 0 12px rgba(255, 215, 0, 0.7),
+    0 0 24px rgba(255, 215, 0, 0.5),
+    0 0 36px rgba(255, 215, 0, 0.3);
+  text-align: center;
+  margin:10px;
+    }
+    #link3.visible {
+      animation: zoomLink 5s forwards ease-out, colorShift 3s infinite alternate;
+    }
+    @keyframes zoomLink {
+      to { opacity: 1; transform: scale(1); }
+    }
+    
+    
+    
+    /*imagen de portada*/*
+
+.logo-container {
+  width: 220px;       /* tamaño del círculo */
+  height: 220px;      /* mismo valor para ancho y alto */
+  border-radius: 50%; /* recorte circular */
+  overflow: hidden;   /* oculta todo lo que sobresalga */
+  margin: 10px auto 0px auto;
+  position: relative;
+}
+.logo-container {
+  width: 220px;       /* cuadrado */
+  height: 220px;
+  border-radius: 50%; /* círculo perfecto */
+  overflow: hidden;   /* recorta la imagen dentro */
+  border: 1px solid #FFD700;
+      box-shadow: 
+        0 0 12px rgba(255, 215, 0, 0.7),
+        0 0 24px rgba(255, 215, 0, 0.5),
+        0 0 36px rgba(255, 215, 0, 0.3);
+}
+
+.logo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* ajusta la imagen dentro */
+  display: block;
+  </style>
+</head>
+<body>
+  <div class="padre">
+    <div class="hijo">
+    
+    <div class="logo-container">
+  <!--img src="https://i.ibb.co/fY4MWL0Y/copilot-image-1771951288823.png
+  " alt="Logo LuzNet"-->
+  
+  <img src="https://i.ibb.co/5G3ry4W/IMG20220730173828.jpg
+  " alt="Logo LuzNet">
+</div>
+      <!-- data-text contiene la frase final -->
+      <h1 id="matrix-text" data-text="INVITADO #01"></h1>
+       
+      <p id="slide-p">Nombre del invitado
+          
+      <!--/p>
+      <a id="link1" href="pase 1.html">Invitado 1</a>
+      <a id="link2" href="pase 2.html">Invitado 2</a>
+      <a id="link3" href="pase 3.html">Invitado 3</a-->
+    </div>
+  </div>
+
+  <script>
+    // Función para preparar el efecto Matrix
+    function prepararMatrixTexto() {
+      const p = document.getElementById('matrix-text');
+      if (!p) return;
+
+      const texto = p.getAttribute('data-text');
+      p.textContent = ''; // limpiar contenido
+
+      // Crear un orden aleatorio para las letras
+      const indices = [...texto.split('').keys()];
+      for (let i = indices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indices[i], indices[j]] = [indices[j], indices[i]];
+      }
+
+      texto.split('').forEach((letra, i) => {
+        const span = document.createElement('span');
+        if (letra === ' ') {
+          span.className = 'space';
+        } else {
+          span.textContent = letra;
+          const delay = indices[i] * 0.2; // retraso aleatorio
+          span.style.animationDelay = delay + 's';
+        }
+        p.appendChild(span);
+      });
+    }
+
+    // Observer para activar el efecto cuando aparece en pantalla
+    const hijo = document.querySelector('.hijo');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          hijo.classList.add('visible');
+          prepararMatrixTexto(); // activar efecto Matrix
+
+          // Activar animaciones de los demás elementos
+          ['slide-p','link1','link2','link3'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+              el.classList.remove('visible');
+              void el.offsetWidth;
+              el.classList.add('visible');
+            }
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    if (hijo) {
+      observer.observe(hijo);
+    }
+  </script>
+</body>
+</html>

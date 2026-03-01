@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta property="og:title" content="Invitaciones LuzNet">
+  <meta property="og:description" content="Invitacion digital web.">
+  <meta property="og:image" content="https://i.ibb.co/mFD8qrKb/portada-Luznet.jpg">
+  <meta property="og:url" content="https://felipe021284.github.io/INVITACI-N-DIGITAL/">
+
+  <title>INVITACION DIGITAL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Montserrat&family=Lobster&family=Pacifico&family=Shadows+Into+Light&family=Dancing+Script&family=Raleway&family=Oswald&family=Playfair+Display&family=Indie+Flower&display=swap" rel="stylesheet">
+  
+  
+  <style>
+      body {
+  margin: 0;
+  background-color:black;
+}
+
+.padre {
+  font-family: 'Dancing Script';
+   cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* centra verticalmente */
+  align-items: center;       /* centra horizontalmente */
+  width: 100%;
+  min-height: 100vh;         /* ocupa toda la pantalla */
+  overflow-x: hidden;
+}
+
+/* Responsive: en PC los hijos en fila y centrados */
+@media (min-width: 768px) {
+  .padre {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .hijo {
+    width: 400px;
+    height: 600px;
+    margin: 20px;
+  }
+}
+
+.hijo {
+font-family: 'Dancing Script';
+  border-radius: 10px;
+  border: 1px solid pink;
+      box-shadow: 0 0 1px deeppink, 0 0 1px deeppink, 0 0 45px deeppink;
+  width: 90%;
+  max-width: 400px;
+  height: 600px;             /* altura fija para centrar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color:black;
+  background-image: url("https://i.ibb.co/84QFW5M2/xv-a-os.jpg");
+  background-size: 100% 100%;
+  background-position: center;
+  box-sizing: border-box;
+  opacity: 0; /* oculto hasta que se active */
+  transition: opacity 2s ease;
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto;         /* centrado horizontal en móvil */
+  animation: animationcolor 10s infinite;
+  text-align: center;        /* asegura que el texto se centre */
+}
+
+.hijo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3); /* filtro más suave */
+  z-index: 0; /* importante para no tapar el contenido */
+}
+.hijo * {
+  position: relative;
+  z-index: 1;
+}
+
+.hijo p {
+  margin: 0; /* elimina márgenes por defecto */
+}
+
+p {
+  font-size:20px;
+  font-family: Times New Roman;
+}
+
+h1 {
+  font-size:40px;
+  
+}
+
+/* Animaciones */
+@keyframes textoDerechaIzquierda {
+  0% { transform: translateX(100%) scale(0.8); opacity: 0; }
+  100% { transform: translateX(0) scale(1); opacity: 1; }
+}
+@keyframes textoIzquierdaDerecha {
+  0% { transform: translateX(-100%) scale(0.8); opacity: 0; }
+  100% { transform: translateX(0) scale(1); opacity: 1; }
+}
+@keyframes zoomGiro {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+  100% { transform: scale(1) rotate(360deg); opacity: 1; }
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Estilo contador */
+#contador  {
+  font-size: 22px;
+  font-family: 'Shadows Into Light', cursive;
+  text-align: center;
+  width: 280px;
+  margin: 0 auto;
+  display: block;
+  animation: pulse 1s infinite; /* zoom constante */
+}
+
+/* Clases activadas por Intersection Observer */
+.hijo.activo { opacity: 1; }
+.hijo1 h1 { opacity: 0; }
+.hijo1 p { opacity: 0; }
+.hijo1.activo h1 { animation: textoDerechaIzquierda 2s forwards; }
+.hijo1.activo p { animation: textoIzquierdaDerecha 2s forwards; }
+
+.hijo2 p { opacity: 0; }
+.hijo2.activo p { animation: zoomGiro 3s forwards; }
+
+.hijo3 h1 { opacity: 0; }
+.hijo3.activo h1 { animation: fadeIn 2s forwards; }
+
+/* Animaciones */
+/*
+@keyframes animationcolor {
+  0%,100% { color:pink; }
+  25% { color:white; }
+  50% { color:pink; }
+  75% { color:white; }
+}*/
+
+/* Reproductor */
+.audio-player {
+/*  border: 1px solid #FFD700;*/
+  border: 1px solid pink;
+  box-shadow: 0 0 1px deeppink, 0 0    1px deeppink, 0 0 45px deeppink;
+  border-radius: 40px;
+  padding: 15px;
+  width: 180px;
+  background-color: transparent;
+/*  box-shadow: 
+    0 0 12px rgba(255, 215, 0, 0.7),
+    0 0 24px rgba(255, 215, 0, 0.5),
+    0 0 36px rgba(255, 215, 0, 0.3);*/
+  text-align: center;
+  animation: textoIzquierdaDerecha 2s;
+}
+
+@keyframes glow {
+  0%, 100% {
+    
+  box-shadow: 0 0 1px deeppink, 0 0    1px deeppink, 0 0 45px deeppink;
+  }
+  50% {
+    box-shadow: 
+    
+      
+  box-shadow: 0 0 1px deeppink, 0 0    1px deeppink, 0 0 45px deeppink;
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  animation: animationcolor 10s infinite;
+}
+
+.controls button {
+  background: transparent;
+  border: 1px solid pink;
+  box-shadow: 0 0 1px deeppink, 0 0    1px deeppink, 0 0 45px deeppink;
+/*  border: 1px solid #FFD700;*/
+  color:deeppink;
+  font-size: 20px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+/*  box-shadow: 
+    0 0 8px rgba(255, 215, 0, 0.7),
+    0 0 16px rgba(255, 215, 0, 0.5);*/
+  transition: transform 0.2s, color 0.3s;
+}
+
+.controls button:hover {
+  transform: scale(1.2);
+  
+  
+  box-shadow: 0 0 1px deeppink, 0 0    1px deeppink, 0 0 45px deeppink;
+}
+
+.progress {
+  flex: 1;
+  height: 8px;
+  background : deeppink;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.progress-filled {
+  height: 100%;
+  width: 0%;
+  background:black;
+  border-radius: 5px;
+  
+  box-shadow: 0 0 1px deeppink, 0 0    1px deeppink, 0 0 4px deeppink;
+  transition: width 0.2s;
+}    
+
+/* Animación de zoom infinito */
+@keyframes zoomInfinite {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    color:pink; /* dorado */
+  }
+  50% {
+    transform: scale(1.3); /* se agranda */
+    opacity: 1;
+    color:white; /* alterna a blanco */
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    color:pink; /* regresa a dorado */
+  }
+}
+
+/* Clase aplicada al h1 "Dale Play" */
+.daleplay {
+  animation: pulse 1s infinite forwards;
+}
+img{
+    width:70%;
+    height:30%;
+    
+    border: 1px solid pink;
+      box-shadow: 0 0 1px deeppink, 0 0 1px deeppink, 0 0 20px deeppink;
+    
+/*  transition: transform 0.2s, color 0.3s;*/
+  border-radius: 10px;
+}
+
+@keyframes girar {
+  0%   { transform: rotate(0deg) scale(0.8); opacity: 0; }
+  50%  { transform: rotate(180deg) scale(1.1); opacity: 1; }
+  100% { transform: rotate(360deg) scale(1); opacity: 1; }
+}
+
+/* Imagen dentro del div 3 */
+.hijo3 img {
+  opacity: 0; /* estado inicial */
+  transform: rotate(0deg);
+}
+
+.hijo3.activo img {
+  animation: girar 5s ease-out forwards; /* duración ajustable */
+}
+
+.gps {
+  display: flex;              /* usa flex para centrar el texto */
+  justify-content: center;
+  align-items: center;
+  border: 1px solid pink;
+      box-shadow: 0 0 1px deeppink, 0 0 1px deeppink, 0 0 45px deeppink;
+  transition: transform 0.2s, color 0.3s;
+
+  width: 165px;
+  padding: 8px 0;
+  margin-top: 30px;           /* separación respecto a la imagen */
+  
+ /* border: 1px solid #FFD700;  */ /* borde dorado LuzNet */
+  border-radius: 50px;         /* ovalado */
+  background-color: transparent;
+  
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 22px;
+/*  color: #decba5;*/
+  text-align: center;
+
+  /* Animaciones combinadas */
+  animation: zoomPulse 2s infinite ease-in-out,
+             colorPulse 4s infinite linear,
+             animationcolor 10s infinite; /* mismo efecto que h y p */
+}
+
+/* Animación de zoom pulsante */
+@keyframes zoomPulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Animación de cambio de color */
+@keyframes colorPulse {
+  0%, 100% { color: #decba5; }
+  50%      { color: white; }
+}
+
+/* Estilo del enlace */
+.gps a {
+  text-decoration: none;
+  color: inherit; /* hereda el color del contenedor */
+}
+
+
+/*efecto hijo 3*/
+.hijo3 {
+  opacity: 0; /* estado inicial */
+}
+
+.hijo3.activo {
+  animation: encendidoLento 5s ease forwards; /* duración lenta */
+}
+
+.hijo3.activo h1,
+.hijo3.activo p {
+  animation: encendidoLento 5s ease forwards, animationcolor 10s infinite;
+}
+
+@keyframes matrixFall {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.hijo3 p,
+.hijo3 h1 {
+  opacity: 0;
+  display: inline-block; /* necesario para animar cada letra */
+}
+
+.hijo3.activo p,
+.hijo3.activo h1, 
+.hijo3.activo a
+{
+  animation: matrixFall 5s ease forwards,
+  animationcolor 10s infinite
+}
+
+
+/* slider */
+.slider {
+
+
+width: 225px;
+    height: 190px;
+/*  width: 100%;
+  max-width: 400px;*/
+  overflow: hidden;
+  border: 1px solid pink;
+      box-shadow: 0 0 1px deeppink, 0 0 1px deeppink, 0 0 45px deeppink;
+/*  transition: transform 0.2s, color 0.3s;*/
+  border-radius: 10px;
+  margin:10px;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.slides img {
+
+
+width: 223px;
+    height: 190px;
+
+  flex-shrink: 0;
+}
+/*
+
+efecto girar cuando se active el hijo4 */
+.hijo4.activo .slider {
+  animation: girar 5s ease-out forwards;
+}
+
+
+.indicator {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background:pink; /* dorado suave */
+  border-radius: 50%;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.dot.active {
+  background:deeppink; /* dorado fuerte */
+  transform: scale(1.2);
+}
+
+
+/*efecto matrix*/
+ .matrix-container {
+      font-size: 2rem;
+    }
+
+    @keyframes matrixFall {
+      0% {
+        transform: translateY(-100vh); /* empieza arriba */
+        opacity: 0;
+      }
+      70% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(0); /* se detiene en su lugar */
+        opacity: 1;
+      }
+    }
+
+    .matrix-container span {
+      opacity: 0;
+      display: inline-block;
+      animation: matrixFall 1s ease forwards;
+    }
+
+    .matrix-container .space {
+      display: inline-block;
+      width: 0.6em; /* ancho del espacio */
+    }
+    
+    /* Párrafo más grande */
+.hijo5 p.zoom {
+  font-size: 20px; /* ajusta según lo grande que lo quieras */
+}
+
+.btn{
+  font-size: 20px; 
+animation:  animationcolor 10s infinite;
+  /* ajusta según lo grande que lo quieras */
+}
+
+
+    
+  .zoom {
+  transform: scale(0.2);
+  opacity: 0;
+}
+
+@keyframes zoomIn {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.zoom.visible {
+  animation: zoomIn 1.5s forwards ease-out;
+}
+
+.hijo6 span {
+  display: inline-block; /* sin opacity base para que no se apaguen */
+}
+
+@keyframes christmasLight {
+  0%   { opacity: 0.1; color:white; }
+  50%  { opacity: 1; color:white; text-shadow: 0 0 10px pink; }
+  100% { opacity: 1; color: pink; /*text-shadow: 0 0 15px #FFD700;*/ }
+}
+
+@keyframes colorShift {
+  0%   { color: white; text-shadow: 0 0 15px pink; } /* dorado brillante */
+  50%  { color:white; text-shadow: 0 0 15px #FFFFFF; } /* blanco brillante */
+  100% { color:pink; text-shadow: 0 0 15px pink; } /* dorado brillante */
+}
+
+.hijo6 span.on {
+  animation: christmasLight 1s forwards;
+}
+
+.hijo6 span.colorCycle {
+  animation: colorShift 4s infinite ease-in-out;
+}
+
+#hijo6 h1 {
+  font-size: 35px; /* tamaño del título */
+}
+
+#hijo6 p {
+  font-size: 15px; /* tamaño del párrafo */
+}
+
+#hijo7 h1 {
+  font-size: 35px; /* tamaño del título */
+}
+
+#hijo7 p {
+  font-size: 19px; /* tamaño del párrafo */
+}
+
+hr {
+  border: none;              /* elimina el estilo por defecto */
+  height: 1px;               /* grosor de la línea */
+  background:deeppink;       /* color dorado */
+  margin: 20px auto;         /* espacio arriba y abajo */
+  width: 60%;                /* ancho de la línea */
+}
+/* ====== Contenedor general del div 7 ====== */
+.hijo7 {
+  text-align: center;   /* centra todo el contenido */
+  padding: 20px;
+}
+
+/* ====== H1 con efecto Matrix + ciclo de color ====== */
+#matrix-h1 {
+  margin-bottom: 15px;
+}
+
+#matrix-h1 .space {
+  display: inline-block;
+  width: 0.6em;
+}
+
+@keyframes matrixFade {
+  from { opacity: 0; transform: translateY(-20px); color:white; }
+  to   { opacity: 1; transform: translateY(0); color:pink; }
+}
+
+#matrix-h1 span {
+  opacity: 0;
+  display: inline-block;
+  animation: matrixFade 0.5s forwards;
+}
+
+#matrix-h1 span.colorCycle {
+  animation: animationcolor 6s infinite ease-in-out;
+}
+
+/* ====== Párrafos con efecto olas ====== */
+.hijo7 p {
+  text-align: center;   /* centra el texto */
+/*  margin: 10px auto;*/
+  width: 100%;
+}
+/*
+.hijo7 p .space {
+  display: inline-block;
+  width: 0.6em;
+}
+*/
+/*
+.hijo7 p span {
+  display: inline;*/ /* importante para que text-align funcione 
+}
+*/
+/*
+.hijo7 p span.on {
+  animation: matrixFade 0.5s forwards;
+}*/
+/*
+.hijo7 p span.colorCycle {
+  animation: animationcolor 6s infinite ease-in-out;
+}*/
+
+/* ====== Animación olas de playa (ciclo dorado ↔ blanco) ====== */
+@keyframes animationcolor {
+  0%,100% { color:pink; }
+  25% { color:white; }
+  50% { color:pink; }
+  75% { color:pink; }
+}
+
+/* ====== Imagen con zoom ====== */
+.zoom-img {
+  width: 50px;
+  height: auto;
+  transform: scale(0.2);
+  opacity: 0;
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; /* centra la imagen */
+}
+
+@keyframes zoomInImg {
+  to { transform: scale(1); opacity: 1; }
+}
+
+.zoom-img.visible {
+  animation: zoomInImg 2s forwards ease-out;
+}
+
+
+
+/*
+#matrix-h1 span,
+.hijo7 p span{
+  display: inline-block;
+  animation: animationcolor 6s infinite ease-in-out;
+}*/
+/* H1: efecto olas infinito */
+#matrix-h1 span {
+  display: inline-block;
+  animation: animationcolor 6s infinite ease-in-out;
+}
+
+/* Párrafos: efecto olas que se ejecuta una sola vez */
+.hijo7 p span {
+  display: inline-block;
+  animation: animationcolor 6s ease-in-out forwards; /* sin infinite */
+}
+
+
+
+.logo-container {
+  width: 220px;       /* tamaño del círculo */
+  height: 220px;      /* mismo valor para ancho y alto */
+  border-radius: 50%; /* recorte circular */
+  overflow: hidden;   /* oculta todo lo que sobresalga */
+  margin: 10px auto 0px auto;
+  position: relative;
+}
+.logo-container {
+  width: 220px;       /* cuadrado */
+  height: 220px;
+  border-radius: 50%; /* círculo perfecto */
+  overflow: hidden;   /* recorta la imagen dentro */
+  border: 1px solid deeppink;
+  box-shadow: 0 0 15px deeppink;
+}
+
+.logo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* ajusta la imagen dentro */
+  display: block;
+  </style>
+
+  
+</head>
+<body>
+  <div class="padre">
+    <div class="hijo hijo1">
+    <div class="logo-container">
+  <!--img src="https://i.ibb.co/fY4MWL0Y/copilot-image-1771951288823.png
+  " alt="Logo LuzNet"-->
+  
+  <img src="https://i.ibb.co/Y7CMjBFs/mi-sesion-fotos-de-xv-book-4.webp
+  " alt="Logo LuzNet">
+</div>
+      <h1>Mis XV años <br />Fecha</h1>
+      <p>
+          
+Gracias mamá y papá por su amor, por su esfuerzo y por enseñarme a ser quien soy. <br /> 
+Con todo mi corazón <br /> 
+Nombre quinceañera
+      </p>
+      
+     
+    </div>
+    
+    
+     <div class="hijo hijo1">
+      <h1>Mis XV años <br />
+      Mis Papas y Padrinos</h1>
+      <p>Nombres de papas <br /> Nombres de padrinos <br /> y un audio opcional</p>
+      <div class="daleplay">
+      <h1 >Dale Play</h1>
+      </div>
+      <div class="audio-player">
+    <audio id="song">
+      <source src="https://dl.dropbox.com/scl/fi/49eacpxgv0tmsts97l530/Bogota-MP3_160K.mp3?rlkey=gk0ibk5ld4qde03maaiuz8soy&st=v99fbfsg&dl=0
+      " type="audio/mp3">
+      Tu navegador no soporta audio HTML5.
+    </audio>
+
+    <div class="controls">
+      <button id="playPause">▶</button>
+      <div class="progress" id="progress">
+        <div class="progress-filled" id="progressFilled"></div>
+      </div>
+      <button id="mute">🔇</button>
+    </div>
+  </div>
+      
+     
+    </div>
+    
+
+    <div class="hijo hijo2">
+      <p>En este apartado va información <br>
+        sobre lugar, fecha y hora del evento <br>
+        como también un contador regresivo</p>
+      <div id="contador"></div>
+    </div>
+
+<div class="hijo hijo6" id="hijo6">
+  <h1 data-text="Agenda de actividades"></h1>
+  <p data-text="En este apartado van los horarios
+De las distintas actividades del evento"></p>
+  <ul>
+    <li data-text=" 🕒 7:00 PM – Recepción"></li>
+    <li data-text="🍽️ 8:00 PM – Cena"></li>
+    <li data-text="🎶 9:30 PM – Baile"></li>
+    <li data-text="🥂 11:00 PM – Brindis"></li>
+  </ul>
+</div>
+
+    <div class="hijo hijo3 subir">
+      <h1>Ceremonia Religiosa</h1>
+      <p>En este apartado van  los detalles  <br /> de la ubicacion por
+       texto, enlace al maps,<br />
+       una foto ya sea del exterior o del interior</p>
+       
+       <img src="https://i.ibb.co/Kc06V9bJ/images-7.jpg" alt="images (7)" border="0">
+       
+       <div class="gps">
+ 
+    <a href="https://maps.app.goo.gl/4um9YVqEmjJ7LZX8A" target="_blank">
+      <i class="fa fa-street-view" aria-hidden="true"></i> Ubicación
+    </a>
+  </div>
+    </div>
+    
+    
+    <div class="hijo hijo3 subir">
+      <h1>Recepcion</h1>
+      <p>En este apartado van  los detalles  <br /> de la ubicacion por
+       texto, enlace al maps,<br />
+       una foto ya sea del exterior o del interior</p>
+       
+       <img src="https://i.ibb.co/Kc06V9bJ/images-7.jpg" alt="images (7)" border="0">
+       
+       <div class="gps">
+ 
+    <a href="https://maps.app.goo.gl/4um9YVqEmjJ7LZX8A" target="_blank">
+      <i class="fa fa-street-view" aria-hidden="true"></i> Ubicación
+    </a>
+  </div>
+    </div>
+    
+    <div class="hijo hijo4">
+    <script>
+    
+  </script>
+  
+    <div class="matrix-container">
+     <p id="matrix-text" data-text="Sección de fotos">Sección de fotos</p>
+  </div>
+    
+    <div class="slider">
+    
+  <div class="slides">
+  
+   
+    <img src="https://i.ibb.co/RkWbjdjz/hermoso-arreglo-rosas-23-2150737457.jpg
+    " alt="Foto 1">
+    <img src="https://i.ibb.co/39p3ZcQM/premium-photo-1661883809211-eb59f508b3d9.jpg
+    " alt="Foto 2">
+    <img src="https://i.ibb.co/qLsG4q5N/images-8.jpg
+    " alt="Foto 3">
+  </div>
+</div>
+
+<!-- Barra indicadora (fuera del slider) -->
+<div class="indicator">
+  <span class="dot active"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+    
+    
+  
+  
+</div>
+      
+      </div>
+      <div class="hijo hijo5">
+  <h1 class="zoom">Qr pase de entrada</h1>
+  <img class="zoom" src="https://i.ibb.co/93pkFTj3/pase-1.png" alt="pase-1">
+  <p class="zoom">Por favor confirma tu asistencia <br /> antes de la fecha.</p>
+  <div class="gps zoom">
+    <a href="https://wa.me/523312281872?text=Hola,%20confirmo%20mi%20asistencia%20al%20evento." class="btn">Confirmar</a>
+  </div>
+</div>
+      
+       <div class="hijo hijo7" id="hijo7">
+  <h1 id="matrix-h1" data-text="Gracias por asistir"></h1>
+
+<p id="matrix-p1" data-text="Agradezco tu presencia ."></p>
+    <p id="matrix-p3" data-text="En este evento tan solemne."></p>
+<hr><br /><br /><br /><br /><br />
+<p id="matrix-p2" data-text="✨Invitaciones LuzNet✨"></p>
+
+<p id="matrix-p4" data-text="✨Agradece tu preferencia✨"></p>
+  
+  <div class="footer-img">
+  <!--p>Invitaciones LuzNet agradece tu preferencia.</p-->
+  <img class="zoom-img" src="https://i.ibb.co/p6rnGD6R/IMG-20260227-WA0009.jpg
+  " alt="Logo LuzNet">
+  </div>
+  
+</div>
+    
+  </div>
+
+  <script>
+ 
+// Intersection Observer para activar animaciones al entrar en pantalla
+const hijos = document.querySelectorAll('.hijo');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Reiniciar animación CSS: quitar y volver a poner la clase
+      entry.target.classList.remove('activo');
+      void entry.target.offsetWidth; // fuerza reflow
+      entry.target.classList.add('activo');
+
+      // Para hijo4: activar efecto Matrix cada v
