@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!-- =========================================
+   Propiedad de LuzNet ©
+   Creado por Felipe Jiménez
+   Así de fácil, así de impresionante, así es LuzNet
+   ========================================= -->
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -65,7 +70,7 @@ font-family: 'Dancing Script';
   background-size: 100% 100%;
   background-position: center;
   box-sizing: border-box;
-  opacity: 0; /* oculto hasta que se active */
+  
   transition: opacity 2s ease;
   position: relative;
   overflow: hidden;
@@ -100,28 +105,6 @@ h1 {
   
 }
 
-/* Animaciones */
-@keyframes textoDerechaIzquierda {
-  0% { transform: translateX(100%) scale(0.8); opacity: 0; }
-  100% { transform: translateX(0) scale(1); opacity: 1; }
-}
-@keyframes textoIzquierdaDerecha {
-  0% { transform: translateX(-100%) scale(0.8); opacity: 0; }
-  100% { transform: translateX(0) scale(1); opacity: 1; }
-}
-@keyframes zoomGiro {
-  0% { transform: scale(0) rotate(0deg); opacity: 0; }
-  50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
-  100% { transform: scale(1) rotate(360deg); opacity: 1; }
-}
-@keyframes pulse {
-  0%,100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-}
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
 
 /* Estilo contador */
 #contador  {
@@ -134,27 +117,9 @@ h1 {
   animation: pulse 1s infinite; /* zoom constante */
 }
 
-/* Clases activadas por Intersection Observer */
-.hijo.activo { opacity: 1; }
-.hijo1 h1 { opacity: 0; }
-.hijo1 p { opacity: 0; }
-.hijo1.activo h1 { animation: textoDerechaIzquierda 2s forwards; }
-.hijo1.activo p { animation: textoIzquierdaDerecha 2s forwards; }
 
-.hijo2 p { opacity: 0; }
-.hijo2.activo p { animation: zoomGiro 3s forwards; }
 
-.hijo3 h1 { opacity: 0; }
-.hijo3.activo h1 { animation: fadeIn 2s forwards; }
 
-/* Animaciones */
-/*
-@keyframes animationcolor {
-  0%,100% { color:pink; }
-  25% { color:white; }
-  50% { color:pink; }
-  75% { color:white; }
-}*/
 
 /* Reproductor */
 .audio-player {
@@ -282,7 +247,7 @@ img{
 
 /* Imagen dentro del div 3 */
 .hijo3 img {
-  opacity: 0; /* estado inicial */
+  
   transform: rotate(0deg);
 }
 
@@ -311,35 +276,19 @@ img{
 /*  color: #decba5;*/
   text-align: center;
 
-  /* Animaciones combinadas */
-  animation: zoomPulse 2s infinite ease-in-out,
-             colorPulse 4s infinite linear,
-             animationcolor 10s infinite; /* mismo efecto que h y p */
-}
-
-/* Animación de zoom pulsante */
-@keyframes zoomPulse {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-
-/* Animación de cambio de color */
-@keyframes colorPulse {
-  0%, 100% { color: #decba5; }
-  50%      { color: white; }
-}
+  }
 
 /* Estilo del enlace */
 .gps a {
   text-decoration: none;
-  color: inherit; /* hereda el color del contenedor */
+  animation: animationcolor 10s infinite;
+  
 }
 
 
 /*efecto hijo 3*/
 .hijo3 {
-  opacity: 0; /* estado inicial */
+  
 }
 
 .hijo3.activo {
@@ -367,7 +316,7 @@ img{
 
 .hijo3 p,
 .hijo3 h1 {
-  opacity: 0;
+  
   display: inline-block; /* necesario para animar cada letra */
 }
 
@@ -483,7 +432,7 @@ animation:  animationcolor 10s infinite;
     
   .zoom {
   transform: scale(0.2);
-  opacity: 0;
+  
 }
 
 @keyframes zoomIn {
@@ -581,25 +530,6 @@ hr {
 /*  margin: 10px auto;*/
   width: 100%;
 }
-/*
-.hijo7 p .space {
-  display: inline-block;
-  width: 0.6em;
-}
-*/
-/*
-.hijo7 p span {
-  display: inline;*/ /* importante para que text-align funcione 
-}
-*/
-/*
-.hijo7 p span.on {
-  animation: matrixFade 0.5s forwards;
-}*/
-/*
-.hijo7 p span.colorCycle {
-  animation: animationcolor 6s infinite ease-in-out;
-}*/
 
 /* ====== Animación olas de playa (ciclo dorado ↔ blanco) ====== */
 @keyframes animationcolor {
@@ -615,7 +545,7 @@ hr {
   width: 50px;
   height: auto;
   transform: scale(0.2);
-  opacity: 0;
+  
   margin-top: 10px;
   display: block;
   margin-left: auto;
@@ -702,7 +632,7 @@ Nombre quinceañera
       <h1>Mis XV años <br />
       Mis Papas y Padrinos</h1>
       <p>Nombres de papas <br /> Nombres de padrinos <br /> y un audio opcional</p>
-      <div class="daleplay">
+      <div >
       <h1 >Dale Play</h1>
       </div>
       <div class="audio-player">
@@ -726,23 +656,13 @@ Nombre quinceañera
     
 
     <div class="hijo hijo2">
+    <h1>Informacion del evento</h1>
       <p>En este apartado va información <br>
         sobre lugar, fecha y hora del evento <br>
         como también un contador regresivo</p>
       <div id="contador"></div>
     </div>
 
-<!--div class="hijo hijo6" id="hijo6">
-  <h1 data-text="Agenda de actividades"></h1>
-  <p data-text="En este apartado van los horarios
-De las distintas actividades del evento"></p>
-  <ul>
-    <li data-text=" 🕒 7:00 PM – Recepción"></li>
-    <li data-text="🍽️ 8:00 PM – Cena"></li>
-    <li data-text="🎶 9:30 PM – Baile"></li>
-    <li data-text="🥂 11:00 PM – Brindis"></li>
-  </ul>
-</div-->
 
     <div class="hijo hijo3 subir">
       <h1>Ceremonia Religiosa</h1>
@@ -783,7 +703,7 @@ De las distintas actividades del evento"></p>
   </script>
   
     <div class="matrix-container">
-     <p id="matrix-text" data-text="Sección de fotos">Sección de fotos</p>
+     <h1>Sección de fotos</h1>
   </div>
     
     <div class="slider">
@@ -813,27 +733,19 @@ De las distintas actividades del evento"></p>
 </div>
       
       </div>
-      <!--div class="hijo hijo5">
-  <h1 class="zoom">Qr pase de entrada</h1>
-  <img class="zoom" src="https://i.ibb.co/93pkFTj3/pase-1.png" alt="pase-1">
-  <p class="zoom">Por favor confirma tu asistencia <br /> antes de la fecha.</p>
-  <div class="gps zoom">
-    <a href="https://wa.me/523312281872?text=Hola,%20confirmo%20mi%20asistencia%20al%20evento." class="btn">Confirmar</a>
-  </div>
-</div-->
+     
       
        <div class="hijo hijo7" id="hijo7">
-  <h1 id="matrix-h1" data-text="Gracias por asistir"></h1>
+  <h1>Gracias por asistir</h1>
 
-<p id="matrix-p1" data-text="Agradezco tu presencia ."></p>
-    <p id="matrix-p3" data-text="En este evento tan solemne."></p>
-<hr><br /><br /><br /><br /><br />
-<p id="matrix-p2" data-text="✨Invitaciones LuzNet✨"></p>
+<p>Agradezco tu presencia.</p>
 
-<p id="matrix-p4" data-text="✨Agradece tu preferencia✨"></p>
+    <p>En este evento tan solemne.</p>
+<hr>
+<p>✨Invitaciones LuzNet✨</br>✨Agradece✨ <br />✨Tu preferencia✨</p>
   
   <div class="footer-img">
-  <!--p>Invitaciones LuzNet agradece tu preferencia.</p-->
+  
   <img class="zoom-img" src="https://i.ibb.co/p6rnGD6R/IMG-20260227-WA0009.jpg
   " alt="Logo LuzNet">
   </div>
@@ -844,26 +756,6 @@ De las distintas actividades del evento"></p>
 
   <script>
  
-// Intersection Observer para activar animaciones al entrar en pantalla
-const hijos = document.querySelectorAll('.hijo');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Reiniciar animación CSS: quitar y volver a poner la clase
-      entry.target.classList.remove('activo');
-      void entry.target.offsetWidth; // fuerza reflow
-      entry.target.classList.add('activo');
-
-      // Para hijo4: activar efecto Matrix cada vez que aparece
-      if (entry.target.classList.contains('hijo4')) {
-        prepararMatrixTexto();
-      }
-    }
-  });
-}, { threshold: 0.5 });
-
-hijos.forEach(hijo => observer.observe(hijo));
-
 
 
     // Contador regresivo (2 de diciembre)
@@ -974,49 +866,7 @@ slides.addEventListener('touchend', e => {
 // Inicializar
 updateIndicator();
 
-//frase matrix
 
-
-
-
-// Función para preparar el efecto Matrix
-
-
-// Observer para hijo4
-const hijo4 = document.querySelector('.hijo4');
-const observer4 = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      prepararMatrixTextoDiv4('matrix-text'); // activa efecto Matrix en el título
-      iniciarSliderDiv4(); // activa slider
-    }
-  });
-}, { threshold: 0.5 });
-
-if (hijo4) observer4.observe(hijo4);
-
-
-// Función Matrix exclusiva para div4
-function prepararMatrixTextoDiv4(elementId) {
-  const el = document.getElementById(elementId);
-  if (!el) return;
-
-  const texto = el.getAttribute('data-text');
-  el.textContent = '';
-
-  [...texto].forEach((letra, i) => {
-    const span = document.createElement('span');
-    if (letra === ' ') {
-      span.className = 'space';
-      span.innerHTML = '&nbsp;';
-    } else {
-      span.textContent = letra;
-      span.style.animationDelay = (i * 0.2) + 's';
-      span.style.animationName = 'matrixFall'; // 👈 usa tu animación Matrix
-    }
-    el.appendChild(span);
-  });
-}
 
 
 // Slider exclusivo para div4
