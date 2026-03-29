@@ -19,32 +19,20 @@
 
     .envelope {
       position: relative;
-      width: 260px;
-      height: 360px;
-      background: linear-gradient(145deg, #f8c8dc, #f4a6c1);
-      border: 1px solid deeppink;
-      box-shadow: 0 0 1px deeppink, 0 0 1px deeppink, 0 0 45px deeppink;
+      width: 340px;
+      height: 250px;
+      background: url("https://i.ibb.co/GQXcsggp/IMG-20260329-131525.jpg") no-repeat center center;
+      background-size: cover;
+    /*  border: 1px solid deeppink;*/
+      box-shadow: 0 0 1px deeppink, 0 0 1px deeppink,0 0 45px deeppink;
       overflow: hidden;
       perspective: 1200px;
     }
 
-    .flap {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 45%;
-      background: linear-gradient(145deg, #f4a6c1, #f08bab);
-      clip-path: polygon(0 0, 100% 0, 50% 100%);
-      transform-origin: top center;
-      transition: transform 1s ease;
-      z-index: 2;
-      border-bottom: 2px solid deeppink;
-    }
-
+    
     .seal {
       position: absolute;
-      top: 44%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 70px;
@@ -54,6 +42,9 @@
     }
 
     .seal img {
+    position: absolute;
+      top: 55%;
+     
       width: 100%;
       height: 100%;
       border-radius: 50%;
@@ -64,10 +55,9 @@
     .sobre {
       position: absolute;
       bottom: 0;
-      width: 100%;
+      width:100%;
       height: 100%;
-      background: url("https://i.ibb.co/27qCC0CZ/b4f4c87d38258a3029e25f1348f49ecf.jpg") no-repeat center center;
-      background-size: cover;
+      
       display: flex;
       justify-content: center;
       align-items: center;
@@ -106,13 +96,17 @@
     <div class="flap"></div>
     <!-- Imagen del sello -->
     <div class="seal" onclick="openEnvelope()">
-      <img src="https://i.ibb.co/1Fby4xm/IMG-20260225-152710.jpg" alt="Sello XV">
+      <img src="https://i.ibb.co/KpMk86BW/sello-xv.png
+      " alt="Sello XV">
     </div>
     <div class="sobre">
       <div class="invitation"></div>
     </div>
   </div>
-
+<div id="sobreAbierto" style="display:none; text-align:center;">
+  <img src="https://i.ibb.co/zHFzMJkh/1774733846909.png
+  " alt="Sobre abierto" style="max-width:100%; height:auto;">
+</div>
   <!-- Audio que se reproducirá -->
   <audio id="audioSeal" src="https://dl.dropbox.com/scl/fi/f62hfvox43hrsidg9hjha/te-invito-a-mi-fiesta.mp3?rlkey=3uek03kdcxmv6hlacqkvwaxo9&st=72lk0lkr&dl=1
   "></audio>
@@ -131,9 +125,32 @@
 
       // Redirección después de unos segundos (opcional)
       setTimeout(function() {
-        window.location.href = "xv.html"; 
+        window.location.href = "pase 1.html"; 
       }, 2100); // espera 3.5 segundos
     }
+    
+    function openEnvelope() {
+    // Animación de apertura
+    document.querySelector('.flap').style.transform = 'rotateX(-180deg)';
+    document.querySelector('.invitation').style.opacity = '1';
+
+    // Reproducir audio
+    var audio = document.getElementById("audioSeal");
+    audio.play();
+
+    // Mostrar imagen del sobre abierto
+    setTimeout(function() {
+      document.querySelector('.envelope').style.display = "none";
+      document.getElementById("sobreAbierto").style.display = "block";
+    }, 1000); // espera 1 segundo
+
+    // Redirección después de unos segundos
+    setTimeout(function() {
+      window.location.href = "xv.html"; 
+    }, 2200); // espera 4 segundos
+  }
+    
+    
   </script>
 
 </body>
