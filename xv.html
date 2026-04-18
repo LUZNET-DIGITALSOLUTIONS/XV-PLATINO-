@@ -428,8 +428,6 @@ animation:  animationcolor 10s infinite;
   /* ajusta según lo grande que lo quieras */
 }
 
-
-    
   .zoom {
   transform: scale(0.2);
   
@@ -445,6 +443,8 @@ animation:  animationcolor 10s infinite;
 .zoom.visible {
   animation: zoomIn 1.5s forwards ease-out;
 }
+
+    
 
 .hijo6 span {
   display: inline-block; /* sin opacity base para que no se apaguen */
@@ -542,7 +542,7 @@ hr {
 
 /* ====== Imagen con zoom ====== */
 .zoom-img {
-  width: 50px;
+  width: 250px;
   height: auto;
   transform: scale(0.2);
   
@@ -552,13 +552,7 @@ hr {
   margin-right: auto; /* centra la imagen */
 }
 
-@keyframes zoomInImg {
-  to { transform: scale(1); opacity: 1; }
-}
 
-.zoom-img.visible {
-  animation: zoomInImg 2s forwards ease-out;
-}
 
 
 
